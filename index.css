@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+    
+}
+body{
+    
+    position: relative;
+}
+
+/* h1 to h6 tag  */
+
+/* navbar  */
+
+.navbar-color{
+    background: #0b253e !important;
+    color: #fff;
+}

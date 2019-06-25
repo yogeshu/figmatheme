@@ -29,9 +29,47 @@ body{
     margin: 5%;
     height: 600px;
 }
+
 .main-nav{
-    
+    font-size: 16px;
+    background: #0b253e;
+    /* background: url("https://picsum.photos/200/300?grayscale"); */
     text-align:center;
     border: 1px solid rgb(255, 81, 0);
     padding: 80px;
 }
+.main-nav a {
+    color: #fff !important;
+    
+}
+#nav1:hover{
+    background: url("https://picsum.photos/200/300?grayscale");
+    transition: 0.7s;
+
+}
+#nav2:hover{
+    background: url("https://picsum.photos/200/300?grayscale");
+    transition: 0.7s;
+
+}
+#nav3:hover{
+    background: url("https://picsum.photos/200/300?grayscale");
+    transition: 0.7s;
+
+}
+#nav4:hover{
+    background: url("https://picsum.photos/200/300?grayscale");
+    transition: 0.7s;
+
+}
+#nav5:hover{
+    background: url("https://picsum.photos/200/300?grayscale");
+    transition: 0.7s;
+
+}
+#nav6:hover{
+    background: url("https://picsum.photos/200/300?grayscale");
+    transition: 0.7s;
+
+}
+

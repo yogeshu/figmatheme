@@ -25,3 +25,13 @@ body{
     background: #0b253e !important;
     color: #fff;
 }
+.main-menu {
+    margin: 5%;
+    height: 600px;
+}
+.main-nav{
+    
+    text-align:center;
+    border: 1px solid rgb(255, 81, 0);
+    padding: 80px;
+}

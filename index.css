@@ -73,3 +73,18 @@ body{
 
 }
 
+.x-header{
+    margin: 5%;
+    color: rgb(32, 153, 143);
+}
+.x-discription{
+    margin: 5%;
+    font-size: 14px;
+}
+.x-link {
+    margin: 5%;
+    color: #9e4d18;
+}
+.def-u{
+    margin-top: 20%;
+}

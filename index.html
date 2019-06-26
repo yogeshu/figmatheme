@@ -86,12 +86,12 @@
       <div class="row">
         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
           <div class="x-border">
-          <img
-            class="img-fluid  x-img"  
-            src="https://picsum.photos/500/300?grayscale"
-            alt="imgaes "
-          />
-        </div>
+            <img
+              class="img-fluid  x-img"
+              src="https://picsum.photos/500/300?grayscale"
+              alt="imgaes "
+            />
+          </div>
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-6 py-5">
           <h1 class="x-header ">lorem text wala header in header</h1>
@@ -119,12 +119,12 @@
 
         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
           <div class="x-border">
-          <img
-            class="img-fluid img-x"
-            src="https://picsum.photos/500/300"
-            alt="imgaes "
-          />
-        </div>
+            <img
+              class="img-fluid img-x"
+              src="https://picsum.photos/500/300"
+              alt="imgaes "
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -150,7 +150,70 @@
         </div>
       </div>
     </div>
+    <!-- image lsiderl -->
 
+    <!-- the graph  -->
+    <div class="container-fluid " id="xi">
+      <div class="row ">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 py-5">
+          <h1 class="py-5 chartcolor">
+            Lorem ipsum dolor sit amet lorem ipsum dolor consectetur adipisicing
+            elit.
+          </h1>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 py-5">
+          <div class="chartdetails">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem
+              ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum
+              dolor sit amet consectetur, adipisicing elit.
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <a href="#" class="text-center ml-auto x-link"> Lorem </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-8 col-md-10 col-lg-12 ml-auto">
+          <section class="chart-container text-center">
+            <svg width="1100" height="520"></svg>
+          </section>
+          <h1 class="text-center py-5">
+            Average income graph in 2014
+          </h1>
+        </div>
+      </div>
+    </div>
+<!-- graph  -->
+
+
+<!--  vidoe slider  -->
+
+<div class="container" id="xixi">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-lg-6 py-5">
+
+<div class="xixi-header py-5">
+
+  <h1> Our Success story 
+    ipsa natus facilis cum sint, unde quaerat, reprehenderit
+     similique, asperiores hic.</h1>
+     <h1> We are here to JOin You</h1>
+</div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 col-lg-6 py-5">
+
+        <div class="xixi-header py-5">
+        
+          <p> Our Success story 
+            ipsa natus facilis cum sint, unde quaerat, reprehenderit
+             similique, asperiores hic.</p>
+             <a href="" class="text-center"> We are here to JOin You</a>
+        </div>
+            </div>
+  </div>
+</div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -166,5 +229,126 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script>
+      var static_data = [
+        {
+          grad_year: 2014,
+          student_count: 42
+        },
+        {
+          grad_year: 2015,
+          student_count: 102
+        },
+        {
+          grad_year: 2016,
+          student_count: 160
+        },
+        {
+          grad_year: 2017,
+          student_count: 82
+        },
+        {
+          grad_year: 2018,
+          student_count: 48
+        },
+        {
+          grad_year: 2019,
+          student_count: 68
+        },
+        {
+          grad_year: 2020,
+          student_count: 28
+        }
+      ];
+      var tip = d3
+        .select(".chart-container")
+        .append("div")
+        .attr("class", "tip")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden");
+
+      var svg = d3.select("svg").attr("class", "background-style"),
+        margin = { top: 20, right: 20, bottom: 42, left: 40 },
+        width = +svg.attr("width") - margin.left - margin.right,
+        height = +svg.attr("height") - margin.top - margin.bottom;
+
+      var x = d3
+          .scaleBand()
+          .rangeRound([0, width])
+          .padding(0.05),
+        y = d3.scaleLinear().rangeRound([height, 0]);
+
+      var g = svg
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("apiPlaceholderURL", function(error, data) {
+        //if (error) throw error;
+
+        data = static_data;
+
+        x.domain(
+          data.map(function(d) {
+            return d.grad_year;
+          })
+        );
+        y.domain([
+          0,
+          d3.max(data, function(d) {
+            return d.student_count;
+          })
+        ]);
+
+        g.append("g")
+          .attr("class", "axis axis--x")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x))
+          .append("text")
+          .attr("y", 6)
+          .attr("dy", "2.5em")
+          .attr("dx", width / 2 - margin.left)
+          .attr("text-anchor", "start")
+          .text("Grad Year");
+
+        g.append("g")
+          .attr("class", "axis axis--y")
+          .call(d3.axisLeft(y).ticks(10))
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", "0.71em")
+          .attr("text-anchor", "end")
+          .text("Student Count");
+
+        g.selectAll(".bar")
+          .data(data)
+          .enter()
+          .append("rect")
+          .attr("class", "bar")
+          .attr("x", function(d) {
+            return x(d.grad_year);
+          })
+          .attr("y", function(d) {
+            return y(d.student_count);
+          })
+          .attr("width", x.bandwidth())
+          .attr("height", function(d) {
+            return height - y(d.student_count);
+          })
+          .on("mouseover", function(d) {
+            return tip
+              .text(d.student_count)
+              .style("visibility", "visible")
+              .style("top", y(d.student_count) - 13 + "px")
+              .style("left", x(d.grad_year) + x.bandwidth() - 12 + "px");
+          })
+          //.on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+          .on("mouseout", function() {
+            return tip.style("visibility", "hidden");
+          });
+      });
+    </script>
   </body>
 </html>
